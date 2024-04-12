@@ -35,14 +35,9 @@ Note 1: Please run next cmd after above step 2 if you are using Linux OS: `sudo 
 Note 2: If you are using Docker Desktop for MacOS 12.2 or later - please enable [virtiofs](https://www.docker.com/blog/speed-boost-achievement-unlocked-on-docker-desktop-4-6-for-mac/) for performance (enabled by default since Docker Desktop v4.22).
 
 ## Setting up DEV environment
-1.You can clone this repository from GitHub or install via composer.
+1.You can clone this repository from GitHub.
 
 Note: Delete `storage/mysql-data` folder if it is exists.
-
-If you have installed composer and want to install environment via composer you can use next cmd command:
-```bash
-composer create-project systemsdk/docker-nginx-php-laravel example-app
-```
 
 2.Add domain to local `hosts` file:
 ```bash
@@ -82,68 +77,15 @@ make seed
 make key-generate
 ```
 
+7.Restart an application
+```bash
+make restart
+```
+
 7.In order to use this application, please open in your browser next urls:
 - [http://localhost](http://localhost)
 - [http://localhost:8025 (Mailpit)](http://localhost:8025)
 
-## Setting up STAGING environment locally
-1.You can clone this repository from GitHub or install via composer.
-
-Note: Delete `storage/mysql-data` and `vendor` folder if it is exists.
-
-If you have installed composer and want to install environment via composer you can use next cmd command:
-```bash
-composer create-project systemsdk/docker-nginx-php-laravel example-app
-```
-Note: If you want to change default docker configurations (web_port, etc...) - create uncommitted `.env` file, copy data from `.env.staging`, edit necessary environment variable value.
-
-2.Build, start and install the docker images from your terminal:
-```bash
-make build-staging
-make start-staging
-```
-
-3.Make sure that you have installed migrations:
-```bash
-make migrate-no-test
-```
-
-4.Set key for application:
-```bash
-make key-generate
-```
-
-## Setting up PROD environment locally
-1.You can clone this repository from GitHub or install via composer.
-
-Note: Delete `storage/mysql-data` and `vendor` folder if it is exists.
-
-If you have installed composer and want to install environment via composer you can use next cmd command:
-```bash
-composer create-project systemsdk/docker-nginx-php-laravel example-app
-```
-
-2.Edit `docker-compose-prod.yml` and set necessary user/password for MySQL.
-
-3.Edit `env.prod` and set necessary user/password for MySQL.
-
-Note: If you want to change default docker configurations (web_port, etc...) - create uncommitted `.env` file, copy data from `.env.prod`, edit necessary environment variable value.
-
-4.Build, start and install the docker images from your terminal:
-```bash
-make build-prod
-make start-prod
-```
-
-5.Make sure that you have installed migrations:
-```bash
-make migrate-no-test
-```
-
-6.Set key for application:
-```bash
-make key-generate
-```
 
 ## Getting shell to container
 After application will start (`make start`) and in order to get shell access inside laravel container you can run following command:
