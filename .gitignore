@@ -8,7 +8,6 @@ reports/*
 /public/build
 /public/hot
 /public/storage
-/storage/*
 /storage/*.key
 /storage/mysql-data/
 /vendor
